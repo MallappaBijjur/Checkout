@@ -10,7 +10,6 @@ Requirements:
 To run the app locally:
 
 ```bash
-cd react-example
 npm run setup
 npm run dev
 open http://localhost:8080
