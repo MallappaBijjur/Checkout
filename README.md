@@ -1,6 +1,6 @@
-# react-checkout
+# checkout for msphitect
 
-React Checkout app that demonstrates using [React] with [webpack], and [babeljs], as well as project structure.
+React Checkout app that demonstrates using [React] with [webpack], and [babeljs
 
 Requirements:
 - git
