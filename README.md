@@ -1,6 +1,7 @@
 # Checkout
 
 Steps to follow
+
 npm run setup
 
 npm run dev
