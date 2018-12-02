@@ -7,11 +7,10 @@
     "dev": "webpack-dev-server --inline --content-base ./ --env.dev",
     "build": "webpack --env.prod",
     "lint": "eslint app test",
-    "test": "cross-env NODE_ENV=test nyc mocha",
     "watch:test": "mocha --watch --compilers js:babel-register",
     "start": "http-server",
     "setup": "npm install && npm run validate",
-    "validate": "npm-run-all lint test build"
+    "validate": "npm-run-all lint build"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import { items } from '../../../assets/data';
-import { ListItem } from '../Components/ListItem';
-import { Package } from '../Components/Package';
+import itemProd from '../../../assets/data';
+import List from '../Components/ListItem';
+import PackageList from '../Components/Package';
 
 //Function to determine each packages
-export const buy = function(items){
-  const  packages = [];
+export const buy = (items) =>{
+  const packages = [];
   items.forEach(item => {
-      let pac = packages.find(function(pack){
+      const pac = packages.find(function(pack){
               return pack.price + item.price <= 250;
           });
       if (packages.length && pac) {
@@ -32,7 +32,7 @@ export const buy = function(items){
 // So i am using local state for all the state management 
 export default class Home extends Component {
   state = {
-    item: items, //  Items stored in '/assets/data' where wew can update the item
+    item: itemProd, //  Items stored in '/assets/data' where wew can update the item
     added: [],
     packages: []
   };
@@ -61,7 +61,7 @@ export default class Home extends Component {
     return (
       <div>
         <section className="container">
-        <div className="content">
+          <div className="content">
             <table className="table left table-striped">
               <thead className="thead-dark">
                 <tr>
@@ -71,21 +71,28 @@ export default class Home extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.item.map((prod, index) =>
-                  <ListItem 
+                {this.state.item.map((prod) =>
+                  <List 
                     key={prod.name}
                     handleChange={this.handleChange}
                     item={prod}
-                    key={index}
                   />
                 )}
                 <tr>
-                  <td><button type="button" className="btn btn-primary" onClick={this.placeOrder}>Place Order</button></td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={this.placeOrder}
+                    >
+                      Place Order
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
             <div className="right">
-              {<Package packages={this.state.packages}/>}
+              {<PackageList packages={this.state.packages} />}
             </div>
           </div>
         </section>

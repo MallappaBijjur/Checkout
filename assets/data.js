@@ -1,4 +1,4 @@
-export const items = [
+const prop = [
     {
        "name":"Item 1",
        "price":10,
@@ -250,3 +250,5 @@ export const items = [
        "weight":20
     }
  ];
+
+ export default prop;
