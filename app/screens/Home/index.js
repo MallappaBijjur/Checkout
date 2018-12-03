@@ -3,7 +3,7 @@ import itemProd from '../../../assets/data';
 import List from '../Components/ListItem';
 import PackageList from '../Components/Package';
 
-//Function to determine each packages
+//Function to determine each package items
 export const buy = (items) =>{
   const packages = [];
   items.forEach(item => {
@@ -23,6 +23,27 @@ export const buy = (items) =>{
               items:[item]
           }); 
       }
+  });
+
+  const mean = packages.reduce((tot, curr) => tot + curr.weight, 0)/packages.length;
+  packages.forEach((cPack, j) => {
+    let ct = cPack.weight;
+    cPack.items.forEach((cItem, i) => {
+
+      if(ct > mean){
+        const packToInsert = packages.find(p => p.weight < mean && p.price + cItem.price <= 250);
+       if(packToInsert) {
+        packages[j].weight -= cItem.weight;
+        packages[j].price -= cItem.price;
+        packages[j].items.splice(i, 1);
+
+        packages[packages.indexOf(packToInsert)].weight += cItem.weight;
+        packages[packages.indexOf(packToInsert)].price += cItem.price;
+        packages[packages.indexOf(packToInsert)].items.push(cItem);
+       }
+       ct = ct - cItem.weight;
+      }
+    })
   });
   return packages;
 };
