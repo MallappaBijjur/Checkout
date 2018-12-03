@@ -53,7 +53,7 @@ export const buy = (items) =>{
 // So i am using local state for all the state management 
 export default class Home extends Component {
   state = {
-    item: itemProd, //  Items stored in '/assets/data' where wew can update the item
+    item: itemProd, //  Items stored in '/assets/data' where we can update the item
     added: [],
     packages: []
   };
