@@ -1,4 +1,4 @@
-# checkout for msphitect
+# checkout 
 
 React Checkout app that demonstrates using [React] with [webpack], and [babeljs
 
